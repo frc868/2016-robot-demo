@@ -1,6 +1,9 @@
 package org.usfirst.frc.team868.robot;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 // kill me pleas
 
@@ -36,4 +39,78 @@ public class OI {
 	// Start the command when the button is released and let it run the command
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
+	
+	public static ControllerMap driver;
+	public static ControllerMap sideSeat;
+	private static SendableChooser driverControlChoice;
+	private static SendableChooser sideSeatControlChoice;
+	
+	private static int collecter;     static Button col;
+	private static int launchBall;    static Button LB;
+	private static int collecterMoter;static Button CM;
+	
+	public OI(){
+		initSmartDashboard();
+		driverControlChoice = createDriverChoices();
+		sideSeatControlChoice = createSideSeatChoices();
+	}
+	
+	public static void driverController(){
+		
+		int choice = (int) driverControlChoice.getSelected();
+		
+		if(choice == 0)driver = new ControllerMap(new Joystick(0), ControllerMap.LOGITECH, true);
+		else if(choice == 1)driver = new ControllerMap(new Joystick(0), ControllerMap.XBOX1, true);
+		else if(choice == 2)driver = new ControllerMap(new Joystick(0), ControllerMap.XBOX360, true);
+		else driver = new ControllerMap(new Joystick(0), ControllerMap.XBOX1, true);
+		initDriver();
+	}
+	
+	public static void sideSeatController(){
+		
+		int choice = (int) sideSeatControlChoice.getSelected();
+		
+		if(choice == 0)sideSeat = new ControllerMap(new Joystick(1), ControllerMap.LOGITECH, true);
+		else if(choice == 1)sideSeat = new ControllerMap(new Joystick(1), ControllerMap.XBOX1, true);
+		else if(choice == 2)sideSeat = new ControllerMap(new Joystick(1), ControllerMap.XBOX360, true);
+		else sideSeat = new ControllerMap(new Joystick(1), ControllerMap.XBOX1, true);
+		initSideSeat();
+	}
+	
+	public static void initDriver(){
+		
+	}
+	
+	public static void initSideSeat(){
+		
+	}
+	
+	public void initSmartDashboard(){
+		
+	}
+	
+	public static void updateSmartDashboard(){
+		
+	}
+	
+	//displaying controller choices for Driver and SideSeat
+	
+	private SendableChooser createDriverChoices(){
+		SendableChooser send = new SendableChooser();
+		send.addDefault("XBOX1", new Integer(1));
+		send.addObject("XBOX360", new Integer(2));
+		send.addObject("Logitech", new Integer(0));
+		SmartDashboard.putData("driver controller type", send);
+		return send;
+	}
+	
+	private SendableChooser createSideSeatChoices(){
+		SendableChooser SSsend = new SendableChooser();
+		SSsend.addDefault("XBOX1", new Integer(1));
+		SSsend.addObject("XBOX360", new Integer(2));
+		SSsend.addObject("Logitech", new Integer(0));
+		SmartDashboard.putData("driver controller type", SSsend);
+		return SSsend;
+	}
+	
 }
