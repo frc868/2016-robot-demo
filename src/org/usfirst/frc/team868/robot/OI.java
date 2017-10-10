@@ -1,6 +1,9 @@
 package org.usfirst.frc.team868.robot;
 
-import org.usfirst.frc.team868.robot.commands.disableSideSeat;
+import org.usfirst.frc.team868.robot.commands.CollectorMotor;
+import org.usfirst.frc.team868.robot.commands.CollectorToggle;
+import org.usfirst.frc.team868.robot.commands.DisableSideSeat;
+import org.usfirst.frc.team868.robot.commands.LaunchBall;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -90,16 +93,16 @@ public class OI {
 		disableSide = ControllerMap.START;
 		
 		col = driver.createButton(collecter);
-		col.toggleWhenPressed();
+		col.whenPressed(new CollectorToggle());
 		
 		LB = driver.createButton(launchBall);
-		LB.whenPressed();
+		LB.whenPressed(new LaunchBall());
 		
 		CM = driver.createButton(collecterMoter);
-		CM.whileHeld();
+		CM.whileHeld(new CollectorMotor());
 		
 		DS = driver.createButton(disableSide);
-		DS.whenPressed(new disableSideSeat());
+		DS.whenPressed(new DisableSideSeat());
 	}
 	
 	public static void initSideSeat(){
@@ -108,13 +111,71 @@ public class OI {
 		collecterMoter = ControllerMap.B;
 		
 		col = sideSeat.createButton(collecter);
-		col.toggleWhenPressed();
+		col.whenPressed(new CollectorToggle());
 		
 		LB = sideSeat.createButton(launchBall);
-		LB.whenPressed();
+		LB.whenPressed(new LaunchBall());
 		
 		CM = sideSeat.createButton(collecterMoter);
-		CM.whileHeld();
+		CM.whileHeld(new CollectorMotor());
+	}
+	
+	public static double getDriverLeftStickX(){
+		return driver.getLeftStickX();
+	}
+	
+	public static double getDriverLeftStickY(){
+		return driver.getLeftStickY();
+	}
+	
+	public static double getDriverRightStickX(){
+		return driver.getRightStickX();
+	}
+	
+	public static double getDriverRightStickY(){
+		return driver.getRightStickY();
+	}
+	
+	public static double getDriverLeftTrigger(){
+		return driver.getLeftTrigger();
+	}
+	
+	public static double getDriverRightTrigger(){
+		return driver.getRightTrigger();
+	}
+	
+	public static double getSideSeatLeftStickX(){
+		return sideSeat.getLeftStickX();
+	}
+	
+	public static double getSideSeatLeftStickY(){
+		return sideSeat.getLeftStickY();
+	}
+	
+	public static double getSideSeatRightStickX(){
+		return sideSeat.getRightStickX();
+	}
+	
+	public static double getSideSeatRightStickY(){
+		return sideSeat.getRightStickY();
+	}
+	
+	public static double getSideSeatLeftTrigger(){
+		return sideSeat.getLeftTrigger();
+	}
+	
+	public static double getSideSeatRightTrigger(){
+		return sideSeat.getRightTrigger();
+	}
+	
+	public static void setDriverRumble(boolean rumble, int rumbleType){
+		if(rumble)driver.StartRumble(rumbleType);
+		else if(!rumble)driver.stopRumble(rumbleType);
+	}
+	
+	public static void setSideSeatRumble(boolean rumble, int rumbleType){
+		if(rumble)sideSeat.StartRumble(rumbleType);
+		else if(!rumble)sideSeat.stopRumble(rumbleType);
 	}
 	
 	public void initSmartDashboard(){

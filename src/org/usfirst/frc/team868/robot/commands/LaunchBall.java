@@ -1,22 +1,20 @@
 package org.usfirst.frc.team868.robot.commands;
 
-import org.usfirst.frc.team868.robot.OI;
-
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class disableSideSeat extends Command {
+public class LaunchBall extends Command {
 
-    public disableSideSeat() {
+    public LaunchBall() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	OI.sideSeatDisabled = OI.sideSeatDisabled ? false : true;
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
