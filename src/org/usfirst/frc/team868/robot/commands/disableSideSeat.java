@@ -1,28 +1,26 @@
 package org.usfirst.frc.team868.robot.commands;
 
-import org.usfirst.frc.team868.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team868.robot.OI;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class DriveTele extends Command {
-	
-	DriveTrain drive;
+public class disableSideSeat extends Command {
 
-    public DriveTele() {
-        drive = DriveTrain.getInstance();
-        requires(drive);
+    public disableSideSeat() {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	OI.sideSeatDisabled = OI.sideSeatDisabled ? false : true;
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	
     }
 
     // Make this return true when this Command no longer needs to run execute()

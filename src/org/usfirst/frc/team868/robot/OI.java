@@ -1,5 +1,7 @@
 package org.usfirst.frc.team868.robot;
 
+import org.usfirst.frc.team868.robot.commands.disableSideSeat;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -44,15 +46,19 @@ public class OI {
 	public static ControllerMap sideSeat;
 	private static SendableChooser driverControlChoice;
 	private static SendableChooser sideSeatControlChoice;
+	public static boolean sideSeatDisabled = false;
 	
 	private static int collecter;     static Button col;
 	private static int launchBall;    static Button LB;
 	private static int collecterMoter;static Button CM;
+	private static int disableSide;   static Button DS;
 	
 	public OI(){
 		initSmartDashboard();
 		driverControlChoice = createDriverChoices();
 		sideSeatControlChoice = createSideSeatChoices();
+		driverController();
+		sideSeatController();
 	}
 	
 	public static void driverController(){
@@ -78,11 +84,37 @@ public class OI {
 	}
 	
 	public static void initDriver(){
+		collecter = ControllerMap.RB;
+		launchBall = ControllerMap.Y;
+		collecterMoter = ControllerMap.B;
+		disableSide = ControllerMap.START;
 		
+		col = driver.createButton(collecter);
+		col.toggleWhenPressed();
+		
+		LB = driver.createButton(launchBall);
+		LB.whenPressed();
+		
+		CM = driver.createButton(collecterMoter);
+		CM.whileHeld();
+		
+		DS = driver.createButton(disableSide);
+		DS.whenPressed(new disableSideSeat());
 	}
 	
 	public static void initSideSeat(){
+		collecter = ControllerMap.RB;
+		launchBall = ControllerMap.Y;
+		collecterMoter = ControllerMap.B;
 		
+		col = sideSeat.createButton(collecter);
+		col.toggleWhenPressed();
+		
+		LB = sideSeat.createButton(launchBall);
+		LB.whenPressed();
+		
+		CM = sideSeat.createButton(collecterMoter);
+		CM.whileHeld();
 	}
 	
 	public void initSmartDashboard(){
@@ -90,7 +122,7 @@ public class OI {
 	}
 	
 	public static void updateSmartDashboard(){
-		
+		SmartDashboard.putBoolean("side seat disabled?", sideSeatDisabled);
 	}
 	
 	//displaying controller choices for Driver and SideSeat
