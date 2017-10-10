@@ -11,8 +11,8 @@ import edu.wpi.first.wpilibj.command.Command;
 public class DriveTele extends Command {
 	
 	DriveTrain drive;
-	public double powerL = 0;
-	public double powerR = 0;
+	public static double powerL = 0;
+	public static double powerR = 0;
 
     public DriveTele() {
         drive = DriveTrain.getInstance();
@@ -25,15 +25,28 @@ public class DriveTele extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(OI.sideSeatDisabled){
-    		powerL = (Math.pow(OI.getDriverRightTrigger(), 2) 
-        			- Math.pow(OI.getDriverLeftTrigger(), 2))
-        			- Math.pow(OI.getDriverLeftStickX(), 2);
-    		powerR =(Math.pow(OI.getDriverRightTrigger(), 2) 
-        			- Math.pow(OI.getDriverLeftTrigger(), 2)) 
-        			+ Math.pow(OI.getDriverLeftStickX(), 2);
+    	double brake = Math.pow(OI.getDriverLeftTrigger(), 2);
+    	double gas = Math.pow(OI.getDriverRightTrigger(), 2);
+    	double turn = OI.getDriverLeftStickX() >= 0 ? -Math.pow(OI.getDriverLeftStickX(), 2) : Math.pow(OI.getDriverLeftStickX(), 2);
+    	double ssBrake = Math.pow(OI.getSideSeatLeftTrigger(), 2);
+    	double ssGas = Math.pow(OI.getSideSeatRightTrigger(), 2);
+    	double ssTurn = OI.getSideSeatLeftStickX() >= 0 ? -Math.pow(OI.getSideSeatLeftStickX(), 2) : Math.pow(OI.getSideSeatLeftStickX(), 2);
+    	if(!OI.sideSeatDisabled){
+    		brake = brake > ssBrake ? ssBrake : brake;
+    		gas = gas > ssGas ? ssGas : gas;
+    		turn = Math.abs(turn) >= Math.abs(ssTurn) ? ssTurn : turn;
     	}
-    	drive.setPower(0, 0);
+    	powerL = turn > 0 ? gas - brake : (gas - brake) + turn;
+    	powerR = turn < 0 ? gas - brake : (gas - brake) - turn;
+    	drive.setPower(powerL, powerR);
+    }
+    
+    public static double getPowerL(){
+    	return powerL;
+    }
+    
+    public static double getPowerR(){
+    	return powerR;
     }
 
     // Make this return true when this Command no longer needs to run execute()

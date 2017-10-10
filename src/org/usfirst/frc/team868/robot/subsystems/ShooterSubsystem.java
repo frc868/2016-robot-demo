@@ -8,9 +8,12 @@ import com.ctre.CANTalon;
  *
  */
 public class ShooterSubsystem extends Subsystem {
+	
+	private static ShooterSubsystem instance;
+	
 	private final CANTalon shooter; // regret
-
-    public ShooterSubsystem() {
+	
+	public ShooterSubsystem() {
     	shooter = new CANTalon(0);
     	
     	shooter.changeControlMode(CANTalon.TalonControlMode.Voltage);
@@ -27,6 +30,12 @@ public class ShooterSubsystem extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+    }
+    
+    public static ShooterSubsystem getInstance() {
+    	if (instance == null)
+    		instance = new ShooterSubsystem();
+    	return instance;
     }
 }
 

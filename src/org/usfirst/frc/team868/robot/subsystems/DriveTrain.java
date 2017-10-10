@@ -1,6 +1,7 @@
 package org.usfirst.frc.team868.robot.subsystems;
 
 import org.usfirst.frc.team868.robot.RobotMap;
+import org.usfirst.frc.team868.robot.commands.DriveTele;
 
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -32,8 +33,7 @@ public class DriveTrain extends Subsystem {
     }
 
     public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
+        setDefaultCommand(new DriveTele());
     }
     
     public static DriveTrain getInstance() {

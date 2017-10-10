@@ -1,23 +1,26 @@
 package org.usfirst.frc.team868.robot.commands;
 
-import org.usfirst.frc.team868.robot.OI;
+import org.usfirst.frc.team868.robot.subsystems.ShooterSubsystem;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class DisableSideSeat extends Command {
+public class ShooterMotor extends Command {
+	
+	ShooterSubsystem shooterMotor;
+	public double shooterSpeed;
 
-    public DisableSideSeat() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+    public ShooterMotor(double shooterSpeed) {
+        shooterMotor = ShooterSubsystem.getInstance();
+        requires(shooterMotor);
+        this.shooterSpeed = shooterSpeed;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	OI.sideSeatDisabled = OI.sideSeatDisabled ? false : true;
-    	OI.setSideSeatRumble(OI.sideSeatDisabled, 1);
+    	shooterMotor.setSpeed(shooterSpeed);
     }
 
     // Called repeatedly when this Command is scheduled to run

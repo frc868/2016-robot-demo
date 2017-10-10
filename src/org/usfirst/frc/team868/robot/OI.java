@@ -3,6 +3,7 @@ package org.usfirst.frc.team868.robot;
 import org.usfirst.frc.team868.robot.commands.CollectorMotor;
 import org.usfirst.frc.team868.robot.commands.CollectorToggle;
 import org.usfirst.frc.team868.robot.commands.DisableSideSeat;
+import org.usfirst.frc.team868.robot.commands.DriveTele;
 import org.usfirst.frc.team868.robot.commands.LaunchBall;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -184,6 +185,8 @@ public class OI {
 	
 	public static void updateSmartDashboard(){
 		SmartDashboard.putBoolean("side seat disabled?", sideSeatDisabled);
+		SmartDashboard.putNumber("power right input %", DriveTele.getPowerR());
+		SmartDashboard.putNumber("power left input %", DriveTele.getPowerL());
 	}
 	
 	//displaying controller choices for Driver and SideSeat
