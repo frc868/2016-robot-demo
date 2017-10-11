@@ -1,6 +1,8 @@
 
 package org.usfirst.frc.team868.robot;
 
+import org.usfirst.frc.team868.robot.commands.UpdateSmartDashboard;
+
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -31,6 +33,8 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
+		
+		new UpdateSmartDashboard(20).start();
 
 	}
 

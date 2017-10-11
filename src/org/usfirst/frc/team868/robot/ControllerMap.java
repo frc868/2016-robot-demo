@@ -24,7 +24,7 @@ public class ControllerMap {
 	
 	protected static final int[] playstation4 = {};
 	
-	protected static final double DEADZONE = 0.05;
+	protected static double DEADZONE = 0.05;
 	
 	protected int type;
 	
@@ -95,6 +95,11 @@ public class ControllerMap {
 		return checkDeadZone(joystick.getRawAxis(buttonSet[LT]));
 		}
 	}
+	
+	public void setDeadZone(double deadZone){
+		DEADZONE = deadZone;
+	}
+	
 	public static double checkDeadZone(double val){
 		if(Math.abs(val) < DEADZONE)
 			return 0;
