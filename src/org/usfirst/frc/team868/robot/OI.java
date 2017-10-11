@@ -121,53 +121,29 @@ public class OI {
 		CM.whileHeld(new CollectorMotor());
 	}
 	
-	public static double getDriverLeftStickX(){
-		return driver.getLeftStickX();
-	}
+	public static double getDriverLeftStickX(){return driver.getLeftStickX();}
 	
-	public static double getDriverLeftStickY(){
-		return driver.getLeftStickY();
-	}
+	public static double getDriverLeftStickY(){return driver.getLeftStickY();}
 	
-	public static double getDriverRightStickX(){
-		return driver.getRightStickX();
-	}
+	public static double getDriverRightStickX(){return driver.getRightStickX();}
 	
-	public static double getDriverRightStickY(){
-		return driver.getRightStickY();
-	}
+	public static double getDriverRightStickY(){return driver.getRightStickY();}
 	
-	public static double getDriverLeftTrigger(){
-		return driver.getLeftTrigger();
-	}
+	public static double getDriverLeftTrigger(){return driver.getLeftTrigger();}
 	
-	public static double getDriverRightTrigger(){
-		return driver.getRightTrigger();
-	}
+	public static double getDriverRightTrigger(){return driver.getRightTrigger();}
 	
-	public static double getSideSeatLeftStickX(){
-		return sideSeat.getLeftStickX();
-	}
+	public static double getSideSeatLeftStickX(){return sideSeat.getLeftStickX();}
 	
-	public static double getSideSeatLeftStickY(){
-		return sideSeat.getLeftStickY();
-	}
+	public static double getSideSeatLeftStickY(){return sideSeat.getLeftStickY();}
 	
-	public static double getSideSeatRightStickX(){
-		return sideSeat.getRightStickX();
-	}
+	public static double getSideSeatRightStickX(){return sideSeat.getRightStickX();}
 	
-	public static double getSideSeatRightStickY(){
-		return sideSeat.getRightStickY();
-	}
+	public static double getSideSeatRightStickY(){return sideSeat.getRightStickY();}
 	
-	public static double getSideSeatLeftTrigger(){
-		return sideSeat.getLeftTrigger();
-	}
+	public static double getSideSeatLeftTrigger(){return sideSeat.getLeftTrigger();}
 	
-	public static double getSideSeatRightTrigger(){
-		return sideSeat.getRightTrigger();
-	}
+	public static double getSideSeatRightTrigger(){return sideSeat.getRightTrigger();}
 	
 	public static void setDriverRumble(boolean rumble, int rumbleType){
 		if(rumble)driver.StartRumble(rumbleType);

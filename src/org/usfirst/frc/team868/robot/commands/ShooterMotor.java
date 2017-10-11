@@ -1,6 +1,6 @@
 package org.usfirst.frc.team868.robot.commands;
 
-import org.usfirst.frc.team868.robot.subsystems.ShooterSubsystem;
+import org.usfirst.frc.team868.robot.subsystems.Shooter;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -9,11 +9,11 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class ShooterMotor extends Command {
 	
-	ShooterSubsystem shooterMotor;
+	Shooter shooterMotor;
 	public double shooterSpeed;
 
     public ShooterMotor(double shooterSpeed) {
-        shooterMotor = ShooterSubsystem.getInstance();
+        shooterMotor = Shooter.getInstance();
         requires(shooterMotor);
         this.shooterSpeed = shooterSpeed;
     }
