@@ -3,20 +3,17 @@ package org.usfirst.frc.team868.robot.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 import com.ctre.CANTalon;
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
-/**
- *
- */
 public class Shooter extends Subsystem {
 	
 	private static Shooter instance;
-	
-	private final CANTalon shooter; // regret
+	private final TalonSRX shooter;
 	
 	public Shooter() {
-    	shooter = new CANTalon(0);
-    	
-    	shooter.changeControlMode(CANTalon.TalonControlMode.Voltage);
+    	shooter = new WPI_TalonSRX(0);
     }
 
     public void setSpeed(double rps) {
@@ -24,7 +21,7 @@ public class Shooter extends Subsystem {
     }
     
     public void setPower(double V) {
-    	shooter.set(V);
+    	shooter.set(ControlMode.PercentOutput,V);
     }
     
     public void initDefaultCommand() {
@@ -38,4 +35,3 @@ public class Shooter extends Subsystem {
     	return instance;
     }
 }
-

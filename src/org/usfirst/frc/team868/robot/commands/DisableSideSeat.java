@@ -19,6 +19,32 @@ public class DisableSideSeat extends Command {
     	OI.sideSeatDisabled = OI.sideSeatDisabled ? false : true;
     	OI.setSideSeatRumble(OI.sideSeatDisabled, 1);
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
