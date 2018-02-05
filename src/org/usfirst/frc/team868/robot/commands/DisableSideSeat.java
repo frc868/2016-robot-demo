@@ -18,41 +18,16 @@ public class DisableSideSeat extends Command {
     protected void initialize() {
     	OI.sideSeatDisabled = OI.sideSeatDisabled ? false : true;
     	OI.setSideSeatRumble(OI.sideSeatDisabled, 1);
+    	if(OI.sideSeatDisabled){OI.disableSideSeat();}
+    	else{OI.enableSideSeat();}
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true

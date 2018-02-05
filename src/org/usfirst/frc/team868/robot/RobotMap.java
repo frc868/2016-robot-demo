@@ -12,4 +12,6 @@ public class RobotMap {
 	public static final double COLLECTOR_DOWN = 732 + 96;
 	public static final int COLLECTOR_PDP = 11;
 	
+	public static final int SHOOTER_DIO = 4;
+	
 }

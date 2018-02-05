@@ -2,6 +2,10 @@
 package org.usfirst.frc.team868.robot;
 
 import org.usfirst.frc.team868.robot.commands.UpdateSmartDashboard;
+import org.usfirst.frc.team868.robot.subsystems.CollectorAngler;
+import org.usfirst.frc.team868.robot.subsystems.CollectorMotor;
+import org.usfirst.frc.team868.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team868.robot.subsystems.Shooter;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -35,6 +39,7 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		
 		new UpdateSmartDashboard(20).start();
+		initSubsystems();
 
 	}
 
@@ -113,4 +118,11 @@ public class Robot extends IterativeRobot {
 	public void testPeriodic() {
 		LiveWindow.run();
 	}
+	
+	public void initSubsystems(){
+		CollectorAngler.getInstance();
+		CollectorMotor.getInstance();
+		DriveTrain.getInstance();
+		Shooter.getInstance();
+	}	
 }
