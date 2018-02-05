@@ -3,9 +3,6 @@ package org.usfirst.frc.team868.robot.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.WaitCommand;
 
-/**
- *
- */
 public class LaunchBall extends CommandGroup {
 	
 	private static LaunchBall instance;

@@ -14,6 +14,8 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+//edit to update
+
 public class Shooter extends Subsystem {
 	
 	private static Shooter instance;

@@ -4,9 +4,6 @@ import org.usfirst.frc.team868.robot.subsystems.CollectorAngler;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-/**
- *
- */
 public class CollectorToggle extends Command {
 	
 	CollectorAngler angler;

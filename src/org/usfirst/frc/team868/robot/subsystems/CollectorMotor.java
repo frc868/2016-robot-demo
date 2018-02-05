@@ -8,6 +8,8 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 
+//edit to update
+
 public class CollectorMotor extends Subsystem {
 	
 	private static CollectorMotor instance;

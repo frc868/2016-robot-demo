@@ -3,6 +3,8 @@ package org.usfirst.frc.team868.robot.commands;
 import org.usfirst.frc.team868.robot.subsystems.Shooter;
 import edu.wpi.first.wpilibj.command.Command;
 
+//edit to update
+
 public class ShooterMotor extends Command {
 	
 	Shooter shooterMotor;

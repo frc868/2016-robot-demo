@@ -4,9 +4,6 @@ import org.usfirst.frc.team868.robot.subsystems.CollectorMotor;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-/**
- *
- */
 public class Collect extends Command {
 	
 	CollectorMotor motor;

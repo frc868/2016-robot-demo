@@ -4,9 +4,6 @@ import org.usfirst.frc.team868.robot.OI;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-/**
- *
- */
 public class DisableSideSeat extends Command {
 
     public DisableSideSeat() {
